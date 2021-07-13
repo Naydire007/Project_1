@@ -4,8 +4,8 @@ from models.manufacturers import Manufacturers
 import repositories.manufacturer_repository as manufacturer_repository
 
 def save(inventory):
-    sql =  "INSERT INTO inventory (item_name, manufacturer,description,stock_quantity,buying_cost,selling_cost) VALUES (%s,%s,%s,%s,%s,%s) RETURNING *"
-    values = [inventory.item_name, inventory.manufacturer, inventory.description, inventory.stock_quantity, inventory.buying_cost, inventory.selling_cost]
+    sql =  "INSERT INTO inventory (item_name, manufacturers_id,description,stock_quantity,buying_cost,selling_cost) VALUES (%s,%s,%s,%s,%s,%s) RETURNING *"
+    values = [inventory.item_name, inventory.manufacturer.id, inventory.description, inventory.stock_quantity, inventory.buying_cost, inventory.selling_cost]
     results = run_sql(sql,values)
     id = results[0]['id']
     inventory.id = id

@@ -1,0 +1,23 @@
+{%extends "base.html"%}
+{%block content%}
+
+{%for inventory in all_inventory %}
+    <div class="inventory">
+        <div class="content">
+            {{inventory.manufacturer.company_name}}
+            <div class="description">
+                {{inventory.description}}
+            </div>
+        </div>
+        <div class="buttons">
+
+            <form action="/inventory/{{inventory.id}}/delete" method="post">
+            <button class="trash-button">
+                <i class="fa fa-trash-o fa-3x" style="color:red" aria-hidden="true"></i>
+            </button>
+            </form>
+        </div>
+        
+    </div>
+ {%endfor%}
+{% endblock %}

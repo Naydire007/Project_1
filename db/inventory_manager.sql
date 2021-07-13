@@ -4,7 +4,7 @@ DROP TABLE IF EXISTS manufacturers;
 
 CREATE TABLE manufacturers(
     id SERIAL PRIMARY KEY,
-    compay_name VARCHAR (255),
+    company_name VARCHAR (255),
     description TEXT
 );
 

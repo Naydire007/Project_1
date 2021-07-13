@@ -1,5 +1,7 @@
+from models.manufacturers import Manufacturers
+from re import I
 from flask import Flask, render_template, request,redirect
-from repositories import inventory_repository
+from repositories import inventory_repository, manufacturer_repository
 import repositories.inventory_repository as inventory_repository
 from models.inventory import Inventory
 
@@ -14,4 +16,8 @@ def inventory():
     inventory = inventory_repository.select_all()
     return render_template("inventory/index.html",all_inventory = inventory)
 
+@inventory_blueprint.route("/inventory/new")
+def new_item():
+    manufacturer= manufacturer_repository.select_all()
+    return render_template("inventory/new.html", all_manufacturers = manufacturer)
 

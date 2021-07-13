@@ -3,7 +3,7 @@ from models.manufacturers import Manufacturers
 from models.inventory import Inventory
 
 def save(manufacturer):
-    sql = "INSERT INTO users (company_name, description) VALUES (%s, %s) RETURNING *"
+    sql = "INSERT INTO manufacturers (company_name, description) VALUES (%s, %s) RETURNING *"
     values = [manufacturer.company_name, manufacturer.description]
     results = run_sql(sql, values)
     id = results [0]['id']
@@ -15,13 +15,13 @@ def select_all():
     sql = "SELECT * FROM manufacturers"
     results = run_sql(sql)
     for row in results:
-        manufacturers = Manufacturers(row['company_name'], row['description'], row['id'])
-        manufacturers.append(manufacturers)
+        manufacturer = Manufacturers(row['company_name'], row['description'], row['id'])
+        manufacturers.append(manufacturer)
     return manufacturers
 
 def select(id):
     manufacturer = None
-    sql="SELECT * FROM USERS WHERE ID = %s"
+    sql="SELECT * FROM manufacturers WHERE ID = %s"
     values = [id]
     result = run_sql(sql, values)[0]
 

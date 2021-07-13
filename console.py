@@ -5,8 +5,8 @@ from models.manufacturers import Manufacturers
 import repositories.manufacturer_repository as manufacturer_repository
 import repositories.inventory_repository as inventory_repository
 
-inventory_repository.delete()
-manufacturer_repository.delete()
+# inventory_repository.delete_all()
+# manufacturer_repository.delete_all()
 
 
 manufacturer1 = Manufacturers("Magic Life","Useful product for your quests")

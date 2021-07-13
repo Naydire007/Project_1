@@ -1,0 +1,33 @@
+{%extends "base.html"%}
+
+{%block content%}
+
+<form action="/login" method="post">
+
+</form>
+
+<form action="/inventory" method="post">
+    <div>
+        <label for="description">Description:</label>
+        <input type="text" id="description" name="description">
+        
+    </div>
+    <div>
+        <label for="item_name">Name:</label>
+        <input type="text" id="item_name" name="name">
+    </div>
+    <div>
+        <label for="manufacturer">Manufacturer:</label>
+        <select name="manufacturer_id" id="manufacturer">
+
+            {% for manufacturer in all_manufacturers %}
+            <option value="{{manufacturer.id}}"> {{manufacturer.company_name}}</option>
+            {%endfor%}
+        </select>
+    </div>
+
+    <button type="submit">Add product!</button>
+</form>
+
+
+{%endblock%}

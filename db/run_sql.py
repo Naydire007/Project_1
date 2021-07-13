@@ -6,9 +6,9 @@ def run_sql (sql, values = None):
     results = []
 
     try:
-        conn=psycopg2.connect("dbname='taks_manager'")
+        conn=psycopg2.connect("dbname='store'")
         cur= conn.cursor(cursor_factory=ext.DictCursor)
-        cur.exectue(sql,values)
+        cur.execute(sql,values)
         conn.commit()
         results=cur.fetchall()
         cur.close()
