@@ -6,17 +6,17 @@
 
 <form action="/inventory" method="post">
     <div>
-        <label for="description">Description:</label>
-        <input type="text" id="description" name="description">
+        <label for="item_name">Name:</label>
+        <input type="text" id="item_name" name="item_name">
         
     </div>
     <div>
-        <label for="item_name">Name:</label>
-        <input type="text" id="item_name" name="item_name">
+        <label for="description">Description:</label>
+        <input type="text" id="description" name="description">
     </div>
     <div>
-        <label for="manufacturer">Manufacturer:</label>
-        <select name="manufacturer_id" id="manufacturer">
+        <label for="manufacturers_id">Manufacturer:</label>
+        <select name="manufacturers_id" id="manufacturers_id">
 
             {% for manufacturer in all_manufacturers %}
             <option value="{{manufacturer.id}}"> {{manufacturer.company_name}}</option>
@@ -24,7 +24,22 @@
         </select>
     </div>
 
-    <button type="submit">Add product!</button>
+    <div>
+        <label for="stock_quantity">Quantity:</label>
+        <input type="number" id="stock_quantity" name="stock_quantity">
+    </div>
+    <div>
+        <label for="buying_cost">Buying Cost:</label>
+        <input type="number" id="buying_cost" name="buying_cost">
+    </div>
+    <div>
+        <label for="selling_cost">Selling Price:</label>
+        <input type="number" id="selling_cost" name="selling_cost">
+    </div>
+    <div class="rgb-border">
+        <a class="btn" href="a">Add Product!</a>
+        <!-- <button type="submit">Add product!</button> -->
+    </div>      
 </form>
 
 

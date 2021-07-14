@@ -1,4 +1,3 @@
-from re import I
 from models.manufacturers import Manufacturers
 from flask import Flask, render_template, request,redirect
 from repositories import inventory_repository, manufacturer_repository

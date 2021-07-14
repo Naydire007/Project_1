@@ -11,7 +11,7 @@ manufacturer_repository.delete_all()
 
 manufacturer1 = Manufacturers("Magic Life","Useful product for your quests")
 manufacturer_repository.save(manufacturer1)
-manufacturer2 = Manufacturers("Potion Life", "Saving you again")
+manufacturer2 = Manufacturers("Aqua Vitae", "Saving you again")
 manufacturer_repository.save(manufacturer2)
 
 something=manufacturer_repository.select_all()
