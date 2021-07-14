@@ -1,0 +1,14 @@
+{%extend "base.html"%}
+{%block content%}
+
+<form action="/inventory{{inventory.id}}" method="post">
+<div>
+    <label for="item_name">Name:</label>
+    <input type="text" id="item_name" name="name" value="{{inventory.item_name}}" required>
+
+</div>
+<div>
+    
+</div>
+
+</form>

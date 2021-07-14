@@ -1,8 +1,9 @@
-from models.manufacturers import Manufacturers
 from re import I
+from models.manufacturers import Manufacturers
 from flask import Flask, render_template, request,redirect
 from repositories import inventory_repository, manufacturer_repository
 import repositories.inventory_repository as inventory_repository
+import repositories.manufacturer_repository as manufacturer_repository
 from models.inventory import Inventory
 
 
@@ -21,3 +22,21 @@ def new_item():
     manufacturer= manufacturer_repository.select_all()
     return render_template("inventory/new.html", all_manufacturers = manufacturer)
 
+@inventory_blueprint.route("/inventory", methods=["POST"])
+def create_inventory():
+        item_name = request.form['item_name']
+        manufacturer = manufacturer_repository.select(request.form['manufacturer_id'])
+        description = request.form['description']
+        stock_quantity = request.form['stock_quantity']
+        buying_cost = request.form['buying_cost']
+        selling_cost = request.form['selling_cost']
+        inventory = Inventory(item_name,manufacturer,description,stock_quantity,buying_cost,selling_cost)
+        inventory_repository.save(inventory)
+        return redirect('/inventory')
+
+
+# Show
+@inventory_blueprint.route("/inventory/<id>", methods=['GET'])
+def show_inventory(id):
+    inventory = inventory_repository.select(id)
+    return render_template('inventory/show.html',inventory = inventory)

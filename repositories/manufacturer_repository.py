@@ -29,6 +29,11 @@ def select(id):
         manufacturer = Manufacturers(result['company_name'],result['description'],result['id'])
     return manufacturer
 
+def delete_all():
+    sql = "DELETE FROM manufacturers"
+    run_sql(sql)
+
+
 def delete(id):
     sql = "DELETE FROM manufacturers WHERE id = %s"
     values = [id]
@@ -40,14 +45,3 @@ def update(manufacturer):
     run_sql(sql,values)
 
 
-def inventory(manufacturer):
-    inventory = []
-
-    sql = "SELECT * FROM inventory WHERE manufacturer_id = %s"
-    values=[manufacturer.id]
-    results= run_sql(sql,values)
-
-    for row in results:
-        inventory = Inventory(row['item_name'],row['manufacturer_id'],row['description'],row['stock_quantity'],row['buying_cost'],row['selling_cost'],row['id'])
-        inventory.append(inventory)
-    return inventory

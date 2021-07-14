@@ -18,7 +18,7 @@ def select_all():
     results = run_sql(sql)
 
     for row in results:
-        manufacturer = manufacturer_repository.select(row['manufacturer_id'])
+        manufacturer = manufacturer_repository.select_all(row['manufacturer_id'])
         inventory = Inventory(row['item_name'], manufacturer, row['description'], row['stock_quantity'], row['buying_cost'],row['selling_cost'],row['id'])
         inventory.append(inventory)
     return inventory
@@ -34,6 +34,11 @@ def select(id):
         inventory = Inventory(result['item_name'], manufacturer, result['description'], result['stock_quantity'], result['buying_cost'],result['selling_cost'],result['id'])
     return inventory
 
+def delete_all():
+    sql = "DELETE from inventory"
+    run_sql(sql)
+
+
 def delete(id):
     sql = "DELETE FROM tasks WHERE id = %s"
     values = [id]
@@ -45,3 +50,14 @@ def update(inventory):
     values = [inventory.item_name, inventory.manufacturer, inventory.description, inventory.stock_quantity, inventory.buying_cost, inventory.selling_cost]
     run_sql(sql, values)
     
+def inventory(manufacturer):
+    inventory = []
+
+    sql = "SELECT * FROM inventory WHERE manufacturer_id = %s"
+    values=[manufacturer.id]
+    results= run_sql(sql,values)
+
+    for row in results:
+        inventory = Inventory(row['item_name'],row['manufacturer_id'],row['description'],row['stock_quantity'],row['buying_cost'],row['selling_cost'],row['id'])
+        inventory.append(inventory)
+    return inventory
