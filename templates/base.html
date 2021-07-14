@@ -4,6 +4,13 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial=sacale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="preconnect" href="https://fonts.googleapis.com"/>
+        <link rel="preconnect" href="https://fonts.gstatic.com"crossorigin>
+        <link href="https://fonts...." rel="stylesheet"/>
+        <link href="https...Material+Icons" rel="stylesheet"/>
+        <link href="https...Material+Icons+Outlined" rel="stylesheet"/>
+        <link rel="stylesheet" href="style.css"/>
+
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" crossorigin="anonymous"> 
         <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
         <link rel="stylesheet" href="{{ url_for('static', filename='form.css') }}">
@@ -11,6 +18,36 @@
     </head>
     <body>
         <header>
+            <video muted autoplay loop id="video-background">
+                <source src="/static/videos/pexels-rostislav-uzunov-5453622.mp4" type="video/mp4"/>
+            </video>
+            <div class="header-content">
+                <div class="top">
+                    <a class="brand" href="a">PBrew</a>
+                    <div class="icons">
+                        <a href="a">
+                            <span class="material-icons-outlined">
+                                search
+                            </span>
+                        </a>
+                        <a href="a">
+                            <span class="material-icons-outlined">
+                                menu
+                            </span>
+                        </a>
+                        <a href="a">
+                            <span class="material-icons-outlined">
+                                login
+                            </span>
+                        </a>
+                    </div>
+                </div>
+                <div class="middle">
+                    <h4>instagram
+                        <span class="slash">/</span> @PotionBrew
+                    </h4>
+                </div>
+            </div>
             <nav>
                 <ul class="menu">
                     <li><a href="{{url_for('home')}}">Home</a></li>

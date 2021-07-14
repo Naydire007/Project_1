@@ -43,7 +43,7 @@ def delete(id):
     sql = "DELETE FROM inventory WHERE id = %s"
     values = [id]
     run_sql(sql,values)
-
+  
 
 def update(inventory):
     sql = "UPDATE inventory SET(item_name, manufacturer,description,stock_quantity,buying_cost,selling_cost) = (%s,%s,%s,%s,%s,%s) WHERE id = %s "
