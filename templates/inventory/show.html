@@ -1,0 +1,16 @@
+{% extends "base.html"%}
+{%block content%}
+
+<div>
+    <p>{{inventory.item_name}}</p>
+    <hr>
+    <p>{{inventory.manufacturer.company_name}}</p>
+    <p>{{inventory.description}}</p>
+    <p>{{inventory.stock_quantity}}</p>
+    <p>{{inventory.buying_cost}}</p>
+    <p>{{inventory.selling_cost}}</p>
+    <p><a href="/inventory/{{inventory.id}}/edit">Edit</a></p>
+
+</div>
+
+{%endblock%}

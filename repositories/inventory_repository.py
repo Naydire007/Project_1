@@ -50,14 +50,3 @@ def update(inventory):
     values = [inventory.item_name, inventory.manufacturer, inventory.description, inventory.stock_quantity, inventory.buying_cost, inventory.selling_cost]
     run_sql(sql, values)
     
-def inventory(manufacturer):
-    inventory = []
-
-    sql = "SELECT * FROM inventory WHERE manufacturer_id = %s"
-    values=[manufacturer.id]
-    results= run_sql(sql,values)
-
-    for row in results:
-        inventory = Inventory(row['item_name'],row['manufacturer_id'],row['description'],row['stock_quantity'],row['buying_cost'],row['selling_cost'],row['id'])
-        inventory.append(inventory)
-    return inventory

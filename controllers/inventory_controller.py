@@ -40,3 +40,31 @@ def create_inventory():
 def show_inventory(id):
     inventory = inventory_repository.select(id)
     return render_template('inventory/show.html',inventory = inventory)
+
+
+# EDIT
+@inventory_blueprint.route("/inventory/<id>/edit", methods = ['GET'])
+def edit_inventory(id):
+    inventory = inventory_repository.select(id)
+    manufacturer = manufacturer_repository.select_all()
+    return render_template('inventory/edit.html', inventory=inventory, all_manufacturers = manufacturer)
+
+# UPDATE
+@inventory_blueprint.route("/inventory/<id>", methods=['POST'])
+def update_inventory(id):
+        item_name = request.form['item_name']
+        manufacturer = manufacturer_repository.select(request.form['manufacturer_id'])
+        description = request.form['description']
+        stock_quantity = request.form['stock_quantity']
+        buying_cost = request.form['buying_cost']
+        selling_cost = request.form['selling_cost']
+        inventory = Inventory(item_name,manufacturer,description,stock_quantity,buying_cost,selling_cost)
+        inventory_repository.update(inventory)
+        return redirect('/inventory')
+
+
+# DELETE
+@inventory_blueprint.route("/inventory/<id>/delete", methods=['POST'])
+def delete_inventory(id):
+    inventory_repository.delete(id)
+    return redirect('/inventory')
