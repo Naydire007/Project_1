@@ -13,7 +13,8 @@ manufacturer1 = Manufacturers("Magic Life","Useful product for your quests")
 manufacturer_repository.save(manufacturer1)
 manufacturer2 = Manufacturers("Potion Life", "Saving you again")
 manufacturer_repository.save(manufacturer2)
-manufacturer_repository.select_all()
+
+something=manufacturer_repository.select_all()
 
 item1 = Inventory("Healing potion", manufacturer1, "Heals superficial wounds", 3, 20,30)
 inventory_repository.save(item1)

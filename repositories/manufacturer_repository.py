@@ -8,6 +8,7 @@ def save(manufacturer):
     values = [manufacturer.company_name, manufacturer.description]
     results = run_sql(sql, values)
     id = results [0]['id']
+    manufacturer.id = id
     return manufacturer
 
 def select_all():
@@ -22,7 +23,7 @@ def select_all():
 
 def select(id):
     manufacturer = None
-    sql="SELECT * FROM manufacturers WHERE ID = %s"
+    sql="SELECT * FROM manufacturers WHERE id = %s"
     values = [id]
     result = run_sql(sql, values)[0]
 

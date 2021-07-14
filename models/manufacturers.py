@@ -4,5 +4,5 @@ class Manufacturers:
         self.description = description
         self.id = id 
 
-    def company_name(self):
+    def full_company_name(self):
         return f"{self.company_name} {self.description}"

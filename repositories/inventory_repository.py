@@ -12,16 +12,16 @@ def save(inventory):
     return inventory
 
 def select_all():
-    inventory = []
+    items = []
 
     sql = "SELECT * FROM inventory"
     results = run_sql(sql)
 
     for row in results:
-        manufacturer = manufacturer_repository.select_all(row['manufacturer_id'])
+        manufacturer = manufacturer_repository.select(row['manufacturers_id'])
         inventory = Inventory(row['item_name'], manufacturer, row['description'], row['stock_quantity'], row['buying_cost'],row['selling_cost'],row['id'])
-        inventory.append(inventory)
-    return inventory
+        items.append(inventory)
+    return items
 
 def select(id):
     inventory = None
@@ -30,7 +30,7 @@ def select(id):
     result = run_sql(sql,values)[0]
 
     if result is not None:
-        manufacturer = manufacturer_repository.select(result['manufacturer_id'])
+        manufacturer = manufacturer_repository.select(result['manufacturers_id'])
         inventory = Inventory(result['item_name'], manufacturer, result['description'], result['stock_quantity'], result['buying_cost'],result['selling_cost'],result['id'])
     return inventory
 
@@ -40,7 +40,7 @@ def delete_all():
 
 
 def delete(id):
-    sql = "DELETE FROM tasks WHERE id = %s"
+    sql = "DELETE FROM inventory WHERE id = %s"
     values = [id]
     run_sql(sql,values)
 

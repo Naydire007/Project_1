@@ -25,7 +25,7 @@ def new_item():
 @inventory_blueprint.route("/inventory", methods=["POST"])
 def create_inventory():
         item_name = request.form['item_name']
-        manufacturer = manufacturer_repository.select(request.form['manufacturer_id'])
+        manufacturer = manufacturer_repository.select(request.form['manufacturers_id'])
         description = request.form['description']
         stock_quantity = request.form['stock_quantity']
         buying_cost = request.form['buying_cost']
