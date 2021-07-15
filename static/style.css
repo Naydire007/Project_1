@@ -1,100 +1,170 @@
-.new-inventory{
-  color: white;
+body{
+  margin: 0;
+  font-family: helvetica,sans-serif;
 }
 
+header{
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
 
-body{
-    font-family: "Helvetica", arial, sans-serif; font-size: 16px;
-  }
-  
-  .book {
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    width: 300px;
-    min-height: 68px;
-    padding: 10px;
-    display: flex;
-    line-height: 18px;
-    margin-bottom: 10px;
-  }
-  
-  .name {
-    font-weight: bold;
-    margin-bottom: 0.5em;
-    margin-right: 0.3em;
-  }
-  
-  .publisher{
-    color: #8899a6;
-    font-size: 13px;
-    margin-left: 20px;
-  }
-  
-  .buttons {
-    margin-top: 10px;
-    margin-left: 2px;
-    font-size: 1.4em;
-    color: rgb(173,147,104);
-  }
-  
-  .buttons i {
-    width: 80px;
-  }
-  
-  input, select, button {
-    font-size: 100%;
-    width : 100%;
-    padding: 10px;
-    margin: 10px;
-    box-sizing: border-box;
-  }
-  
-  .trash-button{
-    display: contents;
-    font-size: 65%;
-  }
-  
-  
-  .delete-form{
-    display: inline;
-  }
-  
-  .menu{
-    display: flex;
-    padding: 10px;
-    background-color:black;
-    color: white;
-  }
-  
-  .menu li a{
-    text-decoration: none;
-  }
-  
-  .menu li a:visited{
-    color: white;
-  }
-  .menu li{
-    padding-right: 10px;
-    list-style: none;
-    color: rgb(160, 128, 41);
-    font-family: "Helvetica", arial, sans-serif; font-size: 14px;
-  }
-  
-  .container{
-    display: flex;
-    flex-wrap: wrap;
-    width: 300px;
-    margin: 0 auto;
-  }
-  
-  #home-image {
-    width:100vw;
-    height:100vh;
-    background-image: url('images/library.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
-  
-  .new-book {
-    background-color: rgb(172, 147, 110);
-  }
+header::before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  background: linear-gradient(
+    90deg,rgba(0,0,0,0.9) 0%,
+    rgba(0,0,0,0.6) 50%,
+    rgba(0,0,0,0.9)100%
+  );
+}
+
+#video-background {
+  position: absolute;
+  min-width: 100%;
+  min-height: 100vh;
+  filter: grayscale(50%);
+  top:0;
+  left: 0;
+  z-index: -1;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  color: #fff;
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+
+header, .header-content {
+  min-height: 40em;
+}
+
+.top,
+.middle,
+.bottom{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.top .brand {
+  font-size: 2em;
+  padding-left: 1em;
+  font-family: "Fjalla One", sans-serif;
+  text-decoration: none;
+  color: #fff;
+}
+
+.top .icons {padding-right: 1em;}
+
+.top {padding-top: 2em;}
+.top .icons a{
+  margin: 0 1em;
+  width: 2.5em;
+  height: 2.5em;
+  line-height: 3.1em;
+}
+
+.middle h1 {
+  font-size: 7em;
+  text-transform: uppercase;
+  color: #d3a981;
+  font-family: "Fjalla One", sans-serif;
+  letter-spacing: 1px;
+  margin-bottom: 0.2em;
+}
+
+.middle>div{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+}
+
+.middle h4{
+  writing-mode: vertical-rl;
+  font-weight: 300;
+  color: #dbdbdb;
+}
+
+.slash{color: #d3a981;}
+
+.play-btn{
+  width: 5em;
+  height: 5em;
+  line-height: 5.5em;
+}
+
+.play-btn,
+.top .icons a{
+  background: #fff;
+  color: #000;
+  text-decoration: none;
+  transition: 0.3s;
+  display: inline-block;
+  text-align: center;
+  border-radius: 50%;
+  font-size: 1em;
+}
+
+.play-btn span,
+.top .icons a span{
+  font-size: 1.4em;
+}
+
+.play-btn:hover,
+.top .icons a:hover{
+  background: #000;
+  color: #fff;
+}
+
+.bottom{padding:2em;}
+
+.bottom > div{
+  width: 33%;
+  padding: 0 2em;
+}
+
+.bottom .img{text-align: right;}
+
+.bottom .arrow{
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.bottom > div h1 {
+  max-width: 10em;
+}
+
+.underline {text-decoration: underline;}
+
+.bottom img{
+  width: 15em;
+  transition: 0.4s;
+}
+
+.bottom img:hover {
+  transform: scale(1.1);
+  opacity: 0.5;
+}
+
+@media screen and (max-width:1000px) {
+  header {font-size: 13px;  }
+}
+@media screen and (max-width: 600px){
+
+}

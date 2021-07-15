@@ -7,8 +7,8 @@
         <link rel="preconnect" href="https://fonts.googleapis.com"/>
         <link rel="preconnect" href="https://fonts.gstatic.com"crossorigin>
         <link href="https://fonts...." rel="stylesheet"/>
-        <link href="https...Material+Icons" rel="stylesheet"/>
-        <link href="https...Material+Icons+Outlined" rel="stylesheet"/>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
         <link rel="stylesheet" href="style.css"/>
 
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" crossorigin="anonymous"> 
@@ -16,28 +16,28 @@
         <link rel="stylesheet" href="{{ url_for('static', filename='form.css') }}">
         <title>Potion Brew</title>
     </head>
-    <body>
         <header>
             <video muted autoplay loop id="video-background">
                 <source src="/static/videos/pexels-rostislav-uzunov-5453622.mp4" type="video/mp4"/>
             </video>
+
             <div class="header-content">
                 <div class="top">
-                    <a class="brand" href="a">PBrew</a>
+                    <a class="brand" href="#">PBrew</a>
                     <div class="icons">
-                        <a href="a">
+                        <a href="#">
                             <span class="material-icons-outlined">
-                                search
+                                home
+                             </span>
+                        </a>
+                        <a href="#">
+                            <span class="material-icons-outlined">
+                                inventory_2
                             </span>
                         </a>
-                        <a href="a">
+                        <a href="#">
                             <span class="material-icons-outlined">
-                                menu
-                            </span>
-                        </a>
-                        <a href="a">
-                            <span class="material-icons-outlined">
-                                login
+                                post_add
                             </span>
                         </a>
                     </div>
@@ -46,6 +46,33 @@
                     <h4>instagram
                         <span class="slash">/</span> @PotionBrew
                     </h4>
+                    <div>
+                        <h1>POTION BREW</h1>
+                        <a href="#" class="play-btn">
+                            <span class="material-icons">
+                            play_arrow
+                            </span>
+                        </a>
+                    </div>
+                    <h4>Potions
+                        <span class="slash">/</span> PotionBrew
+                    </h4>
+                    <div class="bottom">
+                        <div>
+                            <h2>
+                                Your
+                                <span class="underline">Potion Brew</span>
+                                Masters
+                            </h2>
+                            <small>Since 1800</small>
+                        </div>
+                        <div class="arrow">
+                            <span class="material-icons-outlined">
+                                expand_more
+                            </span>
+                        </div>
+                        
+                    </div>
                 </div>
             </div>
             <nav>
